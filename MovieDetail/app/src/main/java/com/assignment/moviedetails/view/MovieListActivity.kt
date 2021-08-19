@@ -2,19 +2,14 @@ package com.assignment.moviedetails.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.assignment.moviedetails.R
 import com.assignment.moviedetails.api.ApiClient
 import com.assignment.moviedetails.api.ApiHelper
-import com.assignment.moviedetails.data.MovieResponse
 import com.assignment.moviedetails.data.Results
 import com.assignment.moviedetails.listeners.OnMovieItemClicked
 import com.assignment.moviedetails.utils.Constant
@@ -50,7 +45,7 @@ class MovieListActivity: AppCompatActivity(), OnMovieItemClicked {
     }
 
     private fun setupObservers() {
-        mViewModel.getUsers().observe(this, {
+        mViewModel.getMovieData().observe(this, {
             dataList = it.body()?.results
             rv_movieList.visibility=View.VISIBLE
             progressBar.visibility = View.GONE

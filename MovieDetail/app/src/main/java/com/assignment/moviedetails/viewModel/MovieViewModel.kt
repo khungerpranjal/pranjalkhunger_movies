@@ -13,7 +13,7 @@ class MovieViewModel constructor(private val repository: RepositoryLayer) : View
     var msg = MutableLiveData<String>()
     val API_KEY = "XPvxErn3AzAgApHUCErVSz672jAVdrBQ"
 
-    fun getUsers() = liveData(Dispatchers.IO) {
+    fun getMovieData() = liveData(Dispatchers.IO) {
         try {
             emit(repository.getMovieData(Constant.API_KEY))
         } catch (exception: Exception) {
